@@ -1,36 +1,43 @@
 import React, { useState } from "react";
 
 export const BannerForm = props => {
+  /*
   const [state, setState] = useState({
     imagePreview: "",
     imagePreviewUrl: ""
   });
+  */
+
+  const [imagePreview, setimagePreview] = useState("");
+  const [imagePreviewUrl, setimagePreviewUrl] = useState("");
 
   const handleSubmit = e => {
     e.preventDefault();
     let imagePreviewUrl = e.target.file.value;
 
     if (imagePreviewUrl) {
-      console.log(imagePreviewUrl);
-      state.imagePreview = <img src={imagePreviewUrl} alt="Preview" />;
-      console.log(state.imagePreview);
-      state.myTest = "123;";
-      setState({ ...state, imagePreview: "test" });
+      setimagePreview(imagePreviewUrl);
+    }
+  };
+
+  const handleChange = e => {
+    let imagePreviewUrl = e.target.value;
+    if (imagePreviewUrl) {
+      setimagePreview(imagePreviewUrl);
     }
   };
 
   return (
-    <div className="image-upload">
+    <div className='image-upload'>
       <form onSubmit={handleSubmit}>
-        <input type="file" name="file" />
+        <input type='file' name='file' onChange={handleChange} />
         <button>Upload</button>
       </form>
-      <div className="imgPreview">
+      <div className='imgPreview'>
         <p>preview:</p>
         <br />
-        {state.imagePreview}
-        <br />
-        {state.myTest}
+        <img src={imagePreview} alt='Logo' />
+        {imagePreview}
       </div>
     </div>
   );
