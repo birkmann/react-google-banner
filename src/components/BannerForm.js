@@ -32,6 +32,10 @@ export const BannerForm = props => {
     reader.readAsDataURL(file);
   };
 
+  const ImagePreview = props => {
+    return <img src={imagePreviewUrl} />;
+  };
+
   return (
     <div className='image-upload'>
       <form onSubmit={handleSubmit}>
@@ -39,7 +43,7 @@ export const BannerForm = props => {
         <button>Upload</button>
       </form>
       <div className='imgPreview'>
-        <img src={imagePreviewUrl} alt='Logo' />
+        <ImagePreview />
       </div>
     </div>
   );
