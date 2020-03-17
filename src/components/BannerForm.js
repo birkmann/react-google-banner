@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function BannerForm(e) {
   const [image] = useState({
     imagePreview: "",
-    myTest: ""
+    myTest: "123"
   });
 
   let handleSubmit = e => {
