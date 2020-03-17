@@ -40,13 +40,20 @@ export const BannerForm = props => {
   };
 
   return (
-    <div className='image-upload'>
-      <form onSubmit={handleSubmit}>
-        <input type='file' name='file' onChange={handleChange} />
-        <button>Upload</button>
-      </form>
-      <div className='imgPreview'>
-        <ImagePreview />
+    <div className='editor'>
+      <div className='sidebar'>
+        <div className='image-upload'>
+          <form onSubmit={handleSubmit}>
+            <input type='file' name='file' onChange={handleChange} />
+            <button>Upload</button>
+          </form>
+          <div className='image-preview'>
+            <ImagePreview />
+          </div>
+        </div>
+      </div>
+      <div className='workspace'>
+        <h2>Workspace</h2>
       </div>
     </div>
   );
