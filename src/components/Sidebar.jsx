@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-//import { useStore } from "easy-peasy";
 
 export const Sidebar = props => {
-  //const file = useStore(state => state.file);
   let [file, setFile] = useState("");
   let [imagePreviewUrl, setimagePreviewUrl] = useState("");
 
