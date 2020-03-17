@@ -8,23 +8,28 @@ export const BannerForm = props => {
   });
   */
 
-  const [imagePreview, setimagePreview] = useState("");
+  const [file, setFile] = useState("");
   const [imagePreviewUrl, setimagePreviewUrl] = useState("");
 
   const handleSubmit = e => {
     e.preventDefault();
-    let imagePreviewUrl = e.target.file.value;
-
-    if (imagePreviewUrl) {
-      setimagePreview(imagePreviewUrl);
-    }
   };
 
   const handleChange = e => {
     let imagePreviewUrl = e.target.value;
     if (imagePreviewUrl) {
-      setimagePreview(imagePreviewUrl);
+      setFile(imagePreviewUrl);
     }
+
+    let reader = new FileReader();
+    let file = e.target.files[0];
+
+    reader.onloadend = () => {
+      setimagePreviewUrl(reader.result);
+      console.log(imagePreviewUrl);
+    };
+
+    reader.readAsDataURL(file);
   };
 
   return (
@@ -36,8 +41,7 @@ export const BannerForm = props => {
       <div className='imgPreview'>
         <p>preview:</p>
         <br />
-        <img src={imagePreview} alt='Logo' />
-        {imagePreview}
+        <img src={imagePreviewUrl} alt='Logo' />
       </div>
     </div>
   );
