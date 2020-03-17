@@ -39,8 +39,6 @@ export const BannerForm = props => {
         <button>Upload</button>
       </form>
       <div className='imgPreview'>
-        <p>preview:</p>
-        <br />
         <img src={imagePreviewUrl} alt='Logo' />
       </div>
     </div>
