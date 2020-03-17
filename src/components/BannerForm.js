@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 
-let imagePreview: "";
-
 function BannerForm(e) {
-  /*
-  let [imagePreview, setimagePreview] = useState({
-    imagePreview: ""
-  });
-  */
-
-  let [image, setimage] = useState({
+  const [image] = useState({
     imagePreview: "",
-    imagePreviewUrl: ""
+    myTest: ""
   });
 
   let handleSubmit = e => {
@@ -20,8 +12,9 @@ function BannerForm(e) {
 
     if (imagePreviewUrl) {
       console.log(imagePreviewUrl);
-      imagePreview = <img src={imagePreviewUrl} alt="Preview" />;
-      console.log(imagePreview);
+      image.imagePreview = <img src={imagePreviewUrl} alt="Preview" />;
+      console.log(image.imagePreview);
+      image.myTest = "123;";
     }
   };
 
@@ -34,7 +27,9 @@ function BannerForm(e) {
       <div className="imgPreview">
         <p>preview:</p>
         <br />
-        {imagePreview}
+        {image.imagePreview}
+        <br />
+        {image.myTest}
       </div>
     </div>
   );
