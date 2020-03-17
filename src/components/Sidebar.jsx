@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 
-export const BannerForm = props => {
-  /*
-  const [state, setState] = useState({
-    imagePreview: "",
-    imagePreviewUrl: ""
-  });
-  */
-
+export const Sidebar = props => {
   const [file, setFile] = useState("");
   const [imagePreviewUrl, setimagePreviewUrl] = useState("");
 
@@ -20,14 +13,11 @@ export const BannerForm = props => {
     if (imagePreviewUrl) {
       setFile(imagePreviewUrl);
     }
-
     let reader = new FileReader();
     let file = e.target.files[0];
-
     reader.onloadend = () => {
       setimagePreviewUrl(reader.result);
     };
-
     reader.readAsDataURL(file);
   };
 
@@ -40,20 +30,21 @@ export const BannerForm = props => {
   };
 
   return (
-    <div className='editor'>
-      <div className='sidebar'>
-        <div className='image-upload'>
-          <form onSubmit={handleSubmit}>
-            <input type='file' name='file' onChange={handleChange} />
-            <button>Upload</button>
-          </form>
-          <div className='image-preview'>
-            <ImagePreview />
-          </div>
+    <div className='sidebar'>
+      <div className='image-upload'>
+        <ul>
+          <li>300×250</li>
+          <li>336×280</li>
+          <li>728×90</li>
+          <li>300×600</li>
+          <li>320×100</li>
+        </ul>
+        <form onSubmit={handleSubmit}>
+          <input type='file' name='file' onChange={handleChange} />
+        </form>
+        <div className='image-preview'>
+          <ImagePreview />
         </div>
-      </div>
-      <div className='workspace'>
-        <h2>Workspace</h2>
       </div>
     </div>
   );

@@ -1,19 +1,14 @@
 import React from "react";
 import "./App.css";
 
-import { BannerForm } from "./components/BannerForm";
+import { Sidebar } from "./components/Sidebar";
+import { Workspace } from "./components/Workspace";
 
 function App() {
   return (
-    <div className="App">
-      <BannerForm />
-      <ul>
-        <li>300×250</li>
-        <li>336×280</li>
-        <li>728×90</li>
-        <li>300×600</li>
-        <li>320×100</li>
-      </ul>
+    <div className='app'>
+      <Sidebar />
+      <Workspace />
     </div>
   );
 }
