@@ -26,14 +26,17 @@ export const BannerForm = props => {
 
     reader.onloadend = () => {
       setimagePreviewUrl(reader.result);
-      console.log(imagePreviewUrl);
     };
 
     reader.readAsDataURL(file);
   };
 
   const ImagePreview = props => {
-    return <img src={imagePreviewUrl} />;
+    if (imagePreviewUrl) {
+      return <img src={imagePreviewUrl} alt='Logo' />;
+    } else {
+      return null;
+    }
   };
 
   return (
