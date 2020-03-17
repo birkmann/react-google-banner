@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+//import { useStore } from "easy-peasy";
 
 export const Sidebar = props => {
+  //const file = useStore(state => state.file);
   let [file, setFile] = useState("");
   let [imagePreviewUrl, setimagePreviewUrl] = useState("");
 
@@ -23,20 +25,20 @@ export const Sidebar = props => {
 
   const ImagePreview = props => {
     if (imagePreviewUrl) {
-      return <img src={imagePreviewUrl} alt='Logo' />;
+      return <img src={imagePreviewUrl} alt="Logo" />;
     } else {
       return null;
     }
   };
 
   return (
-    <div className='sidebar'>
-      <div className='image-upload'>
+    <div className="sidebar">
+      <div className="image-upload">
         <h3>Background Image</h3>
         <form onSubmit={handleSubmit}>
-          <input type='file' name='file' onChange={handleChange} />
+          <input type="file" name="file" onChange={handleChange} />
         </form>
-        <div className='image-preview'>
+        <div className="image-preview">
           <ImagePreview />
         </div>
       </div>
