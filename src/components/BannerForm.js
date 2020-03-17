@@ -15,7 +15,7 @@ export const BannerForm = props => {
       state.imagePreview = <img src={imagePreviewUrl} alt="Preview" />;
       console.log(state.imagePreview);
       state.myTest = "123;";
-      setState({ imagePreview: "test" });
+      setState({ ...state, imagePreview: "test" });
     }
   };
 
