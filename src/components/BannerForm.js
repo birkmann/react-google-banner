@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 
-function BannerForm(e) {
-  const [image] = useState({
+export const BannerForm = props => {
+  const [state, setState] = useState({
     imagePreview: "",
-    myTest: "123"
+    imagePreviewUrl: ""
   });
 
-  let handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     let imagePreviewUrl = e.target.file.value;
 
     if (imagePreviewUrl) {
       console.log(imagePreviewUrl);
-      image.imagePreview = <img src={imagePreviewUrl} alt="Preview" />;
-      console.log(image.imagePreview);
-      image.myTest = "123;";
+      state.imagePreview = <img src={imagePreviewUrl} alt="Preview" />;
+      console.log(state.imagePreview);
+      state.myTest = "123;";
+      setState({ imagePreview: "test" });
     }
   };
 
@@ -27,12 +28,10 @@ function BannerForm(e) {
       <div className="imgPreview">
         <p>preview:</p>
         <br />
-        {image.imagePreview}
+        {state.imagePreview}
         <br />
-        {image.myTest}
+        {state.myTest}
       </div>
     </div>
   );
-}
-
-export default BannerForm;
+};

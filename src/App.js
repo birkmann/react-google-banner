@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-import BannerForm from "./components/BannerForm";
+import { BannerForm } from "./components/BannerForm";
 
 function App() {
   return (
